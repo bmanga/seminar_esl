@@ -9,8 +9,8 @@ import pandas as pd
 
 
 def get_vowel_datsets():
-    train = np.loadtxt("datasets/vowel/vowel.train.txt", delimiter=',', skiprows=1, usecols=(i for i in range(1, 12)))
-    test = np.loadtxt("datasets/vowel/vowel.test.txt", delimiter=',', skiprows=1, usecols=(i for i in range(1, 12)))
+    train = np.loadtxt("../datasets/vowel/vowel.train.txt", delimiter=',', skiprows=1, usecols=(i for i in range(1, 12)))
+    test = np.loadtxt("../datasets/vowel/vowel.test.txt", delimiter=',', skiprows=1, usecols=(i for i in range(1, 12)))
     return train, test
 
 
@@ -179,8 +179,10 @@ if __name__ == '__main__':
     x_test = norm(test[:, 1:])
     y_test = test[:, 0]
 
+
     calc_linear_regression(x_train, y_train, x_test, y_test)
     calc_lda(x_train, y_train, x_test, y_test)
     calc_qda(x_train, y_train, x_test, y_test)
     calc_logistic(x_train, y_train, x_test, y_test)
     create_graph(x_train, y_train, x_test, y_test)
+
